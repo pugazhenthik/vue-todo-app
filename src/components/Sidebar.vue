@@ -27,13 +27,13 @@ const taskStore = useTaskStore();
     </div>
     <div class="my-4">
       <NavLink :taskCount="2">My Day</NavLink>
-      <NavLink :taskCount="taskStore.importantTasksCount">Important</NavLink>
-      <NavLink :taskCount="taskStore.tasksCount">Tasks</NavLink>
+      <NavLink :taskCount="taskStore.getImportantTasksCount">Important</NavLink>
+      <NavLink :taskCount="taskStore.getTasksCount">Tasks</NavLink>
     </div>
     <div class="my-4">
       <h2 class="text-blue-600 mb-4 font-semibold text-xl">Archived</h2>
       <div class="my-4">
-        <NavLink :taskCount="taskStore.archivedTasksCount">Archived</NavLink>
+        <NavLink :taskCount="taskStore.getArchivedTasksCount">Archived</NavLink>
       </div>
     </div>
   </div>

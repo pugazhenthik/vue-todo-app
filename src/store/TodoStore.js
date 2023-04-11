@@ -247,34 +247,40 @@ export const useTaskStore = defineStore("taskStore", {
   }),
   getters: {
     getTasks() {
-      return this.tasks.filter((task) => !task.isArchived);
+      return this.tasks;
     },
-    tasksCount() {
+    getTasksCount() {
       return this.getTasks.length;
     },
-    getCompleted() {
-      return this.getTasks.filter((task) => task.isCompleted);
+    getScheduledTasks() {
+      return this.tasks.filter((task) => !task.isArchived && !task.isCompleted);
     },
-    completedTasksCount() {
-      return this.getCompleted.length;
+    getScheduledTasksCount() {
+      return this.getScheduledTasks.length;
     },
-    getImportant() {
+    getCompletedTasks() {
+      return this.tasks.filter((task) => task.isCompleted);
+    },
+    getCompletedTasksCount() {
+      return this.getCompletedTasks.length;
+    },
+    getImportantTasks() {
       return this.getTasks.filter((task) => task.isImportant);
     },
-    importantTasksCount() {
-      return this.getImportant.length;
+    getImportantTasksCount() {
+      return this.getImportantTasks.length;
     },
-    getArchived() {
+    getArchivedTasks() {
       return this.tasks.filter((task) => task.isArchived);
     },
-    archivedTasksCount() {
-      return this.getArchived.length;
+    getArchivedTasksCount() {
+      return this.getArchivedTasks.length;
     },
   },
   actions: {
-    complete(id) {
+    toggleCompleted(id) {
       const task = this.tasks.find((task) => task.id === id);
-      task.isCompleted != task.isCompleted;
+      task.isCompleted = !task.isCompleted;
     },
     toggleImportant(id) {
       const task = this.tasks.find((task) => task.id === id);
