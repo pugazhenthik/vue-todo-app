@@ -259,13 +259,15 @@ export const useTaskStore = defineStore("taskStore", {
       return this.getScheduledTasks.length;
     },
     getCompletedTasks() {
-      return this.tasks.filter((task) => task.isCompleted);
+      return this.tasks.filter((task) => !task.isArchived && task.isCompleted);
     },
     getCompletedTasksCount() {
       return this.getCompletedTasks.length;
     },
     getImportantTasks() {
-      return this.getTasks.filter((task) => task.isImportant);
+      return this.getTasks.filter(
+        (task) => !task.isArchived && task.isImportant
+      );
     },
     getImportantTasksCount() {
       return this.getImportantTasks.length;

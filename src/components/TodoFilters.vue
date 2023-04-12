@@ -3,6 +3,7 @@ import { useTaskStore } from "../store/TodoStore";
 import FilterLink from "./FilterLink.vue";
 
 const taskStore = useTaskStore();
+defineEmits(["filterTodo"]);
 </script>
 <template>
   <div class="mb-4 mt-1">

@@ -1,13 +1,13 @@
 <script setup>
-import { useTaskStore } from "../store/TodoStore";
 import Archive from "./icons/Archive.vue";
 import Important from "./icons/Important.vue";
 
-const taskStore = useTaskStore();
+const props = defineProps({ tasks: Object });
+defineEmits(["toggle"]);
 </script>
 <template>
   <div class="my-4 h-4/5 overflow-scroll">
-    <div v-for="task in taskStore.getScheduledTasks" :key="task.id">
+    <div v-for="task in props.tasks" :key="task.id">
       <div
         class="p-4 my-4 rounded-md bg-white hover:shadow-blue-100 hover:shadow-lg"
         :class="{ 'bg-green-50': task.isCompleted }"
@@ -16,23 +16,22 @@ const taskStore = useTaskStore();
           <div class="items-start">
             <input
               type="checkbox"
-              @change="taskStore.toggleCompleted(task.id)"
+              @change="$emit('toggle', task.id, 'completed')"
               v-if="!task.isCompleted"
             />
           </div>
           <div class="pl-4 flex-grow">
             {{ task.todo }}
           </div>
-
           <button
             class="ml-2 h-8 hover:bg-slate-200 p-1 rounded-md"
-            @click="taskStore.toggleImportant(task.id)"
+            @click="$emit('toggle', task.id, 'important')"
           >
-            <Important :fill="task.isImportant"></Important>
+            <Important :isImportant="task.isImportant"></Important>
           </button>
           <button
             class="ml-2 h-8 hover:bg-slate-200 p-1 rounded-md"
-            @click="taskStore.toggleArchived(task.id)"
+            @click="$emit('toggle', task.id, 'archived')"
           >
             <Archive></Archive>
           </button>

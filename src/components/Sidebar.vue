@@ -26,15 +26,9 @@ const taskStore = useTaskStore();
       <h1 class="text-blue-600 mb-4 font-semibold text-xl">Pugazhenthi</h1>
     </div>
     <div class="my-4">
-      <NavLink :taskCount="2">My Day</NavLink>
-      <NavLink :taskCount="taskStore.getImportantTasksCount">Important</NavLink>
       <NavLink :taskCount="taskStore.getTasksCount">Tasks</NavLink>
-    </div>
-    <div class="my-4">
-      <h2 class="text-blue-600 mb-4 font-semibold text-xl">Archived</h2>
-      <div class="my-4">
-        <NavLink :taskCount="taskStore.getArchivedTasksCount">Archived</NavLink>
-      </div>
+      <NavLink :taskCount="taskStore.getImportantTasksCount">Important</NavLink>
+      <NavLink :taskCount="taskStore.getArchivedTasksCount">Archived</NavLink>
     </div>
   </div>
 </template>

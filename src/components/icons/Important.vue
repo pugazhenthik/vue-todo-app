@@ -1,9 +1,9 @@
 <script setup>
-const props = defineProps({ fill: Boolean });
+const props = defineProps({ isImportant: Boolean });
 </script>
 <template>
   <svg
-    v-if="fill"
+    v-if="isImportant"
     xmlns="http://www.w3.org/2000/svg"
     fill="red"
     viewBox="0 0 24 24"
@@ -18,7 +18,7 @@ const props = defineProps({ fill: Boolean });
     />
   </svg>
   <svg
-    v-else="fill"
+    v-else="isImportant"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
