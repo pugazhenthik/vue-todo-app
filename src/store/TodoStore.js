@@ -13,7 +13,7 @@ export const useTaskStore = defineStore("taskStore", {
       },
       {
         id: 2,
-        todo: "Memorize the fifty states and their capitals",
+        todo: "Contribute code or a monetary donation to an open-source software project Memorize the fifty states and their capitals",
         isCompleted: false,
         isImportant: true,
         isArchived: false,
@@ -29,9 +29,9 @@ export const useTaskStore = defineStore("taskStore", {
       },
       {
         id: 4,
-        todo: "Contribute code or a monetary donation to an open-source software project",
-        isCompleted: false,
-        isImportant: false,
+        todo: "Contribute code or a monetary donation to an open-source software project ",
+        isCompleted: true,
+        isImportant: true,
         isArchived: false,
         userId: 48,
       },

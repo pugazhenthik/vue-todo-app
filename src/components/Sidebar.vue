@@ -5,7 +5,7 @@ const taskStore = useTaskStore();
 </script>
 
 <template>
-  <div class="w-1/4 bg-blue-100 p-4 m-4 rounded-md">
+  <div class="w-1/4 flex-shrink-0 bg-blue-100 p-4 m-4 rounded-md">
     <div class="flex">
       <div class="flex-grow-0 w-10 text-blue-600 font-semibold">
         <svg

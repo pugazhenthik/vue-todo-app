@@ -13,13 +13,7 @@ const filterTodo = (filter) => {
 const taskStore = useTaskStore();
 
 const toggle = (id, event) => {
-  if (event == "important") {
-    taskStore.toggleImportant(id);
-  } else if (event == "completed") {
-    taskStore.toggleCompleted(id);
-  } else if (event == "archived") {
-    taskStore.toggleArchived(id);
-  }
+  taskStore[event](id);
 };
 </script>
 <template>
@@ -27,7 +21,10 @@ const toggle = (id, event) => {
     <div class="flex max-w-5xl bg-blue-50 p-4 h-screen mx-auto">
       <Sidebar></Sidebar>
       <div class="flex-grow relative p-4">
-        <TodoFilters @filterTodo="filterTodo"></TodoFilters>
+        <TodoFilters
+          @filterTodo="filterTodo"
+          :filterTag="filterTag"
+        ></TodoFilters>
         <Todo
           v-if="filterTag == 'completed'"
           :tasks="taskStore.getCompletedTasks"
