@@ -35,8 +35,13 @@ const toggle = (id, event) => {
           @toggle="toggle"
         ></Todo>
         <Todo
-          v-else="filterTag == 'important'"
+          v-else-if="filterTag == 'important'"
           :tasks="taskStore.getImportantTasks"
+          @toggle="toggle"
+        ></Todo>
+        <Todo
+          v-else="filterTag == 'archived'"
+          :tasks="taskStore.getArchivedTasks"
           @toggle="toggle"
         ></Todo>
         <AddTask></AddTask>

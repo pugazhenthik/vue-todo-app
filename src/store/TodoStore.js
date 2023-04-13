@@ -268,9 +268,7 @@ export const useTaskStore = defineStore("taskStore", {
       return this.getCompletedTasks.length;
     },
     getImportantTasks() {
-      return this.getTasks.filter(
-        (task) => !task.isArchived && task.isImportant
-      );
+      return this.tasks.filter((task) => !task.isArchived && task.isImportant);
     },
     getImportantTasksCount() {
       return this.getImportantTasks.length;

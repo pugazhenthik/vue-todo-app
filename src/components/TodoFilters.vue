@@ -23,5 +23,10 @@ defineEmits(["filterTodo"]);
       :filter="filterTag == 'important'"
       >Important ({{ taskStore.getImportantTasksCount }})</FilterLink
     >
+    <FilterLink
+      @click.prevent="$emit('filterTodo', 'archived')"
+      :filter="filterTag == 'archived'"
+      >Archived ({{ taskStore.getArchivedTasksCount }})</FilterLink
+    >
   </div>
 </template>
