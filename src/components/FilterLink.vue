@@ -1,6 +1,5 @@
 <script setup>
 const props = defineProps({ filter: Boolean });
-console.log(props.filter);
 </script>
 <template>
   <a

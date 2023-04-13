@@ -9,6 +9,7 @@ export const useTaskStore = defineStore("taskStore", {
         isCompleted: true,
         isImportant: false,
         isArchived: false,
+        tags: ["shopping"],
         userId: 26,
       },
       {
@@ -17,6 +18,7 @@ export const useTaskStore = defineStore("taskStore", {
         isCompleted: false,
         isImportant: true,
         isArchived: false,
+        tags: ["shopping"],
         userId: 48,
       },
       {
@@ -25,6 +27,7 @@ export const useTaskStore = defineStore("taskStore", {
         isCompleted: false,
         isImportant: false,
         isArchived: false,
+        tags: ["finance"],
         userId: 4,
       },
       {
@@ -32,7 +35,7 @@ export const useTaskStore = defineStore("taskStore", {
         todo: "Contribute code or a monetary donation to an open-source software project ",
         isCompleted: true,
         isImportant: true,
-        isArchived: false,
+        isArchived: true,
         userId: 48,
       },
       {
@@ -291,6 +294,9 @@ export const useTaskStore = defineStore("taskStore", {
     toggleArchived(id) {
       const task = this.tasks.find((task) => task.id === id);
       task.isArchived = !task.isArchived;
+    },
+    addTask(task) {
+      this.tasks.push(task);
     },
   },
 });
