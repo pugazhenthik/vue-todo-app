@@ -19,7 +19,6 @@ const toggle = (id, event) => {
 <template>
   <div class="bg-slate-50">
     <div class="flex max-w-5xl bg-blue-50 p-4 h-screen mx-auto">
-      <Sidebar></Sidebar>
       <div class="flex-grow relative p-4">
         <TodoFilters
           @filterTodo="filterTodo"
