@@ -52,5 +52,11 @@ defineEmits(["toggle"]);
         </div>
       </div>
     </div>
+    <div
+      v-if="!props.tasks.length"
+      class="text-3xl text-blue-200 text-center mt-10"
+    >
+      Add Task
+    </div>
   </div>
 </template>
