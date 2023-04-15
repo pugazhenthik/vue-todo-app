@@ -44,7 +44,7 @@ const handleSubmit = () => {
               placeholder="Type here to schedule something.."
             />
             <p v-if="showError" class="text-sm text-red-600 pt-1">
-              Type somethig..
+              Type something..
             </p>
           </div>
           <div>
